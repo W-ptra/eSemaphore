@@ -24,10 +24,6 @@ func NewDatabase(host, port, user, password, dbName string) (*Database, error) {
 	return &Database{Connection: db}, nil
 }
 
-func (db *Database) Create(value interface{}) error {
-	return db.Connection.Create(value).Error
-}
-
 func (db *Database) Migrate(models ...interface{}) error {
 	return db.Connection.AutoMigrate(models...)
 }
