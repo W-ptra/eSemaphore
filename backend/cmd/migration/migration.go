@@ -13,6 +13,7 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
+	log.Println("Loading env success")
 
 	db, err := database.NewDatabase(
 		os.Getenv("DB_HOST"),
@@ -24,6 +25,7 @@ func main() {
 	if err!=nil{
 		log.Fatal("Database connection failed",err)
 	}
+	log.Println("Establish database connection success")
 
 	err = db.Migrate(
 		&model.User{},
@@ -33,6 +35,5 @@ func main() {
 	if err!=nil{
 		log.Fatal("Migration failed",err)
 	}
-
 	log.Println("Migration success")
 }

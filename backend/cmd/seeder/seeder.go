@@ -15,6 +15,7 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
+	log.Println("Loading env success")
 
 	db, err := database.NewDatabase(
 		os.Getenv("DB_HOST"),
@@ -26,6 +27,7 @@ func main() {
 	if err != nil {
 		log.Fatal("Database connection failed", err)
 	}
+	log.Println("Establish database connection success")
 
 	dummyUser1 := model.User{
 		Id: utils.GenerateUuid(),
@@ -37,6 +39,7 @@ func main() {
 	if err != nil{
 		log.Fatal("failed to created dummyUser1")
 	}
+	log.Println("create dummyUser1 success")
 
 	dummyUser2 := model.User{
 		Id: utils.GenerateUuid(),
@@ -48,6 +51,7 @@ func main() {
 	if err != nil{
 		log.Fatal("failed to created dummyUser2")
 	}
+	log.Println("create dummyUser2 success")
 
 	dummyChat := model.Chat{
 		Id: utils.GenerateUuid(),
@@ -57,6 +61,7 @@ func main() {
 	if err != nil{
 		log.Fatal("failed to created dummyChat")
 	}
+	log.Println("create dummyChat success")
 
 	dummyChatLine1 := model.ChatLine{
 		Id: utils.GenerateUuid(),
@@ -68,6 +73,7 @@ func main() {
 	if err != nil{
 		log.Fatal("failed to created dummyChatLine1")
 	}
+	log.Println("create CreateChatLine success")
 
 	dummyChatLine2 := model.ChatLine{
 		Id: utils.GenerateUuid(),
@@ -79,6 +85,7 @@ func main() {
 	if err != nil{
 		log.Fatal("failed to created dummyChatLine2")
 	}
+	log.Println("create dummyChatLine2 success")
 
 	log.Println("Seeder success")
 }
