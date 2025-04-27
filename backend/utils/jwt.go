@@ -9,10 +9,11 @@ import (
 
 func CreateJwt(user model.User, jwtKey []byte, jwtExpired int) string {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
-		"id":    user.Id,
-		"name":  user.Name,
-		"email": user.Email,
-		"exp":   time.Now().Add(time.Hour * time.Duration(jwtExpired)).Unix(),
+		"id":    	user.Id,
+		"name":  	user.Name,
+		"email": 	user.Email,
+		"imageUrl": user.ImageUrl,
+		"exp":   	time.Now().Add(time.Hour * time.Duration(jwtExpired)).Unix(),
 	})
 
 	tokenString, _ := token.SignedString(jwtKey)
@@ -31,9 +32,10 @@ func GetJwt(tokenString string, jwtKey []byte) (model.User, error) {
 	}
 
 	user := model.User{
-		Id:  	claims["id"].(string) ,
-		Name:  	claims["name"].(string),
-		Email: 	claims["email"].(string),
+		Id:  		claims["id"].(string) ,
+		Name:  		claims["name"].(string),
+		Email: 		claims["email"].(string),
+		ImageUrl: 	claims["imageUrl"].(string),
 	}
 	return user, nil
 }

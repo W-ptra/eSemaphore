@@ -7,7 +7,7 @@ import (
 )
 
 type Database struct {
-	Connection *gorm.DB
+	connection *gorm.DB
 }
 
 func NewDatabase(host, port, user, password, dbName string) (*Database, error) {
@@ -21,9 +21,9 @@ func NewDatabase(host, port, user, password, dbName string) (*Database, error) {
 		return nil, err
 	}
 
-	return &Database{Connection: db}, nil
+	return &Database{connection: db}, nil
 }
 
 func (db *Database) Migrate(models ...interface{}) error {
-	return db.Connection.AutoMigrate(models...)
+	return db.connection.AutoMigrate(models...)
 }

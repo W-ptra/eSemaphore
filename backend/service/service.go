@@ -1,6 +1,10 @@
 package service
 
-import "eSemaphore-backend/database"
+import (
+	"eSemaphore-backend/database"
+	"eSemaphore-backend/model"
+	"github.com/gofiber/fiber/v2"
+)
 
 type Service struct {
 	db 			*database.Database
@@ -14,4 +18,9 @@ func CreateService(db *database.Database, jwtSecret []byte, jwtExpired int) Serv
 		jwtKey: jwtSecret,
 		jwtExpired: jwtExpired,
 	}
+}
+
+func getUserFromContext(c *fiber.Ctx) model.User {
+	user,_ := c.Locals("user").(model.User)
+	return user
 }

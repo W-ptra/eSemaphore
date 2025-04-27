@@ -85,7 +85,7 @@ func (s *Service) Register(c *fiber.Ctx) error {
 		return utils.InternalServerError(c, "Something went wrong, when creating new user")
 	}
 
-	return c.Status(200).JSON(fiber.Map{
+	return c.Status(201).JSON(fiber.Map{
 		"message":fmt.Sprintf(
 			"sucessfully create new user with id %s",
 			newUser.Id,
