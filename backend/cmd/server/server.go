@@ -1,29 +1,25 @@
 package main
 
 import (
+	"eSemaphore-backend/config"
 	"eSemaphore-backend/router"
 	"fmt"
-	"log"
-	"os"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
-	"github.com/joho/godotenv"
 )
 
 func main(){
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-	log.Println("Loading env success")
+	config := config.GetConfig()
 	
 	app := fiber.New()
 	app.Use(logger.New())
 
-	router.CreateRouter(app)
+	router.CreateRouter(app,config)
 
-	port := os.Getenv("PORT")
-	listen := fmt.Sprintf("0.0.0.0:%v",port)
+	listen := fmt.Sprintf(
+		"0.0.0.0:%v",
+		config.PORT,
+	)
 
 	app.Listen(listen)
 }

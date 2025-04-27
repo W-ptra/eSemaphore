@@ -1,26 +1,21 @@
 package main
 
 import (
+	"eSemaphore-backend/config"
 	"eSemaphore-backend/database"
 	"eSemaphore-backend/model"
 	"log"
-	"os"
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-	log.Println("Loading env success")
+	config := config.GetConfig()
 
 	db, err := database.NewDatabase(
-		os.Getenv("DB_HOST"),
-		os.Getenv("DB_PORT"),
-		os.Getenv("DB_USER"),
-		os.Getenv("DB_PASSWORD"),
-		os.Getenv("DB_NAME"),
+		config.DB_HOST,
+		config.DB_PORT,
+		config.DB_USER,
+		config.DB_PASSWORD,
+		config.DB_NAME,
 	)
 	if err!=nil{
 		log.Fatal("Database connection failed",err)

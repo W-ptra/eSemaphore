@@ -8,10 +8,10 @@ type Service struct {
 	jwtExpired	int
 }
 
-func CreateService(db *database.Database, jwtSecret string, jwtExpired int) Service {
+func CreateService(db *database.Database, jwtSecret []byte, jwtExpired int) Service {
 	return Service{
 		db:db,
-		jwtKey: []byte(jwtSecret),
+		jwtKey: jwtSecret,
 		jwtExpired: jwtExpired,
 	}
 }

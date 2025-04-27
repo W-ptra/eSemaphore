@@ -4,8 +4,8 @@ type Middleware struct{
 	jwtSecret []byte
 }
 
-func GetMiddleware(jwtSecret string) Middleware {
+func GetMiddleware(jwtSecret []byte) Middleware {
 	return Middleware{
-		jwtSecret: []byte(jwtSecret),
+		jwtSecret: jwtSecret,
 	}
 }
