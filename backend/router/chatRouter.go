@@ -8,10 +8,11 @@ import (
 )
 
 func ChatRouter(
+	path string,
 	api fiber.Router,
 	middleware middleware.Middleware,
 	service service.Service,
 ){
-	chat := api.Group("/chat")
-	chat.Get("/",middleware.Authentication,service.GetChat)
+	chat := api.Group(path)
+	chat.Get("/", middleware.Authentication, service.GetChat)
 }

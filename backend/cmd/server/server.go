@@ -13,6 +13,9 @@ func main(){
 	
 	app := fiber.New()
 	app.Use(logger.New())
+	app.Static("/public","./public")
+
+	app.Use(config.GetCorsConfig())
 
 	router.CreateRouter(app,config)
 

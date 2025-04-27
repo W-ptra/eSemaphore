@@ -5,6 +5,7 @@ import (
 	"eSemaphore-backend/database"
 	"eSemaphore-backend/middleware"
 	"eSemaphore-backend/service"
+	"eSemaphore-backend/utils"
 	"log"
 	"github.com/gofiber/fiber/v2"
 )
@@ -35,6 +36,10 @@ func CreateRouter(app *fiber.App, config config.Config) {
 	log.Println("Create middlewares success")
 
 	api := app.Group("/api")
-	AuthRouter(api,service)
-	ChatRouter(api,middleware,service)
+
+	AuthRouter("/auth", api, service)
+	ChatRouter("/chat", api, middleware, service)
+	UserRouter("/user", api, middleware, service)
+
+	app.Use(utils.NotFoundPage)
 }

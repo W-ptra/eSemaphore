@@ -5,8 +5,12 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func AuthRouter(api fiber.Router, service service.Service){
-	auth := api.Group("/auth")
-	auth.Post("/login",service.Login)
-	auth.Post("/register",service.Register)
+func AuthRouter(
+	path string,
+	api fiber.Router, 
+	service service.Service,
+){
+	auth := api.Group(path)
+	auth.Post("/login", service.Login)
+	auth.Post("/register", service.Register)
 }

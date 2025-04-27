@@ -32,6 +32,12 @@ func NotFound(c *fiber.Ctx,message string) error {
 	})
 }
 
+func NotFoundPage(c *fiber.Ctx) error {
+	return c.Status(fiber.StatusNotFound).JSON(fiber.Map{
+		"error": "404 Not Found",
+	})
+}
+
 func InternalServerError(c *fiber.Ctx,message string) error {
 	return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 		"error": message,

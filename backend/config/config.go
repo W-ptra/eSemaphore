@@ -38,6 +38,15 @@ func GetConfig() Config {
 		log.Fatal("Can't load or parse JWT_EXPIRED to int")
 	}
 
+	log.Printf("PORT \033[32m%v\033[0m \n", port)
+	log.Printf("DB_HOST \033[32m%v\033[0m \n", dbHost)
+	log.Printf("DB_PORT \033[32m%v\033[0m \n", dbPort)
+	log.Printf("DB_USER \033[32m%v\033[0m \n", dbUser)
+	log.Printf("DB_PASSWORD \033[32m%v\033[0m \n", dbPassword)
+	log.Printf("DB_NAME \033[32m%v\033[0m \n", dbName)
+	log.Printf("JWT_SECRET \033[32m%v\033[0m \n", os.Getenv("JWT_SECRET"))
+	log.Printf("JWT_EXPIRED \033[32m%v\033[0m Hours \n", jwtExpired)
+
 	return Config{
 		PORT: port,
 		DB_HOST: dbHost,

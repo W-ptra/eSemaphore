@@ -7,10 +7,12 @@ import (
 )
 
 func UserRouter(
+	path string,
 	api fiber.Router,
 	middleware middleware.Middleware,
 	service service.Service,
 ){
-	chat := api.Group("/user")
-	chat.Get("/",middleware.Authentication,service.GetChat)
+	user := api.Group(path)
+	user.Get("/", middleware.Authentication, service.GetUserProfile)
+	user.Post("/profile/image", middleware.Authentication, service.UploadUserProfilePicture)
 }
