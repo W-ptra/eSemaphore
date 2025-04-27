@@ -36,10 +36,11 @@ func CreateRouter(app *fiber.App, config config.Config) {
 	log.Println("Create middlewares success")
 
 	api := app.Group("/api")
+	ws := app.Group("/ws") // ws = websocket
 
 	AuthRouter("/auth", api, service)
-	ChatRouter("/chat", api, middleware, service)
 	UserRouter("/user", api, middleware, service)
+	ChatRouter("/chat","/ws", api, ws, middleware, service)
 
 	app.Use(utils.NotFoundPage)
 }

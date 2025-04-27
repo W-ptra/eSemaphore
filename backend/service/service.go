@@ -7,16 +7,20 @@ import (
 )
 
 type Service struct {
-	db 			*database.Database
-	jwtKey 		[]byte
-	jwtExpired	int
+	db 				*database.Database
+	jwtKey 			[]byte
+	jwtExpired		int
+
+	chatWebSocket	ChatWebSocket
 }
 
 func CreateService(db *database.Database, jwtSecret []byte, jwtExpired int) Service {
+	chatWebSocket := getChatWebSocket()
 	return Service{
 		db:db,
 		jwtKey: jwtSecret,
 		jwtExpired: jwtExpired,
+		chatWebSocket: *chatWebSocket,
 	}
 }
 
