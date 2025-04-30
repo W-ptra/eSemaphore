@@ -1,17 +1,24 @@
 function Navbar() {
     return (
         <nav
-            className="w-15 bg-white flex flex-col items-center py-2 z-20"
+            className="md:w-15 bg-white flex flex-row w-full md:flex-col items-center py-2 z-20"
             style={{ boxShadow: '2px 0 4px rgba(0, 0, 0, 0.1)' }}
         >
             <ul
-                className="flex-1/2 flex flex-col gap-y-3"
+                className="flex-1/2 flex flex-row md:flex-col gap-y-3 justify-center md:justify-start"
             >
                 <li className="hover:bg-gray-100 p-1 rounded-xl cursor-pointer" >
 
                     <img
-                        src="https://img.icons8.com/sf-black-filled/64/228BE6/chat-message.png" alt=""
+                        src="/logo/chat_logo.png" alt=""
                         className="size-9"
+                    />
+                </li>
+                <li className="hover:bg-gray-100 p-1 rounded-xl cursor-pointer" >
+
+                    <img
+                        src="/logo/add_chat_logo.png" alt=""
+                        className="size-7 ml-1"
                     />
                 </li>
             </ul>
@@ -22,7 +29,7 @@ function Navbar() {
                     className="hover:bg-gray-100 p-1 rounded-xl cursor-pointer"
                 >
                     <img
-                        src="https://img.icons8.com/fluency-systems-filled/50/228BE6/user-male-circle.png" alt=""
+                        src="/logo/account_logo.png" alt=""
                         className="size-9"
                     />
                 </li>
