@@ -5,7 +5,7 @@ type chatLineProperty = {
 
 function ChatLine({ message,isSender }: chatLineProperty) {
 
-    const bgColor = isSender ? "bg-gray-50" : "bg-white"
+    const bgColor = isSender ? "bg-gray-100" : "bg-white"
     const chatLinePosition = isSender ? "justify-start" : "justify-end"
 
     return (
@@ -13,7 +13,7 @@ function ChatLine({ message,isSender }: chatLineProperty) {
             className={`flex flex-row w-[100%] ${chatLinePosition}`}
         >
             <div
-                className={`shadow flex p-2 m-2 justify-end rounded max-w-[30rem] ${bgColor}`}
+                className={`shadow flex p-2 m-2 justify-end rounded max-w-[90%] ${bgColor}`}
             >
 
                 <div

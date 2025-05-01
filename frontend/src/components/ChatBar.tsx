@@ -1,6 +1,6 @@
 function ChatBar() {
     return (
-        <div className="h-14 shadow  m-5 rounded-xl flex items-center px-2  cursor-pointer ">
+        <div className="h-14 shadow  m-5 rounded-xl flex items-center px-2  cursor-pointer hover:bg-gray-100">
             <div
                 className="basis-1/5 items-center  flex justify-center"
             >

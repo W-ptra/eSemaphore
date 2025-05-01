@@ -17,7 +17,7 @@ function Dashboard() {
 
                 >
                     <div
-                        className="flex-[0_0_30%] overflow-y-auto h-full custom-scrollbar border-2 border-gray-100"
+                        className="hidden md:block flex-[0_0_30%] overflow-y-auto h-full custom-scrollbar border-2 border-gray-100"
                     >
                         <ChatBar />
                         <ChatBar />
@@ -29,7 +29,7 @@ function Dashboard() {
                         <ChatBar />
                     </div>
                     <div
-                        className="flex-[0_0_70%] mt-1 flex flex-col h-full"
+                        className="flex-[0_0_100%] md:flex-[0_0_70%] mt-1 flex flex-col h-full w-full"
                     >
                         <div
                             className="flex-[0_0_10%] border-2 border-white border-b-gray-100 px-2 flex items-center gap-x-2"
@@ -42,7 +42,7 @@ function Dashboard() {
                             </h2>
                         </div>
                         <div
-                            className="overflow-y-auto custom-scrollbar flex-[0_0_80%]"
+                            className="overflow-y-auto custom-scrollbar flex-[0_0_80%] px-5 py-1"
                         >
                             <ChatLine message={lorem} isSender={true} />
                             <ChatLine message={lorem} isSender={false} />
