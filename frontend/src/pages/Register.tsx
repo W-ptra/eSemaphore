@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_APP_API_URL;
+
 function Register() {
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
@@ -52,7 +54,7 @@ function Register() {
                 },
                 body:JSON.stringify(payload)
             }
-            const respond = await fetch(`${import.meta.env.VITE_API}/api/auth/register`,data);
+            const respond = await fetch(`${API_URL}/api/auth/register`,data);
             const result = await respond.json();
             if(!respond.ok){
                 setErrorMessage(result.error);

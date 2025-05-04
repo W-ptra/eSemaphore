@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_APP_API_URL;
+
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("$");
@@ -38,7 +40,7 @@ function Login() {
                 body:JSON.stringify(payload)
             }
 
-            const respond = await fetch(`${import.meta.env.VITE_API}/api/auth/login`,data);
+            const respond = await fetch(`${API_URL}/api/auth/login`,data);
             const result = await respond.json();
             console.log(result);
             if(!respond.ok){
@@ -80,13 +82,13 @@ function Login() {
                             <input
                                 type="text"
                                 placeholder="E-mail address"
-                                className="bg-gray-50 px-5 py-2 mx-5 border-2 border-white focus:border-blue-500 outline-none rounded-lg font-semibold"
+                                className="bg-gray-50 px-5 py-2 mx-5 border-2 border-white  outline-none rounded-lg font-semibold"
                                 onChange={emailChangeHandler}
                             />
                             <input
                                 type="password"
                                 placeholder="Password"
-                                className="bg-gray-50 px-5 py-2 mx-5 border-2 border-white focus:border-blue-500 outline-none rounded-lg font-semibold"
+                                className="bg-gray-50 px-5 py-2 mx-5 border-2 border-white  outline-none rounded-lg font-semibold"
                                 onChange={passwordChangeHandler}
                             />
                             <div className="mx-6">
